@@ -108,8 +108,8 @@ CircularInt& operator - (  int num,CircularInt& other ){
      other1.current=range(other1,num-other1.current);
   return other1;
 }
-CircularInt& operator-(CircularInt& a){
-    CircularInt &a1 (a);
+CircularInt operator-(CircularInt& a){
+    CircularInt a1 (a);
     a1.current=range(a1,(-1)*a1.current);
     return a1;
 }
@@ -124,6 +124,7 @@ CircularInt& operator- ( CircularInt& a, CircularInt& b ){// we use twice at the
     a1.current=range(a1,a1.current+b.current);
     return a1;
 }
+
 CircularInt& operator/ ( CircularInt& other, int num ){
     CircularInt &other1 (other);
     if(num!=0){
@@ -136,28 +137,23 @@ CircularInt& operator/ ( CircularInt& other, int num ){
     }
 
 }
+
 CircularInt& CircularInt::operator/=(const int num)
 {
-    if(this->current % num == 0)
+    if(current % num == 0)
     {
-       this-> current /= num;
+        current /= num;
         (*this) += 0;
     }
     else 
     {
         stringstream ss;
-        ss << "There is no number x in {" << min_range << "," << max_range << "} such that x*" << num << "=" << current_range;
+        ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
         string s = ss.str();
         throw s;
     }
-return *this;
-}
-//  CircularInt& operator/= (  CircularInt& a, int num){
-//     CircularInt &a1 (a);
-//     a1=a1/num;
-//      return a1;
-//  }
-    std::ostream& operator << (std::ostream& os, CircularInt const& ci) {
+    return *this;
+}    std::ostream& operator << (std::ostream& os, CircularInt const& ci) {
     os<<ci.current;
     return os;
 }
