@@ -110,7 +110,7 @@ CircularInt& operator - (  int num,CircularInt& other ){
 }
 CircularInt CircularInt::operator-(){
     CircularInt a1 (*this);
-    a1.current=range(a1,(-1)*a1.current);
+    a1*=-1;
     return a1;
 }
 CircularInt& operator - (CircularInt& other, int num ){
