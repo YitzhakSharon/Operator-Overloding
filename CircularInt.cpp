@@ -151,6 +151,7 @@ CircularInt& CircularInt::operator/=(const int num)
         throw s;
     }
 return *this;
+}
 //  CircularInt& operator/= (  CircularInt& a, int num){
 //     CircularInt &a1 (a);
 //     a1=a1/num;
