@@ -108,7 +108,7 @@ CircularInt& operator - (  int num,CircularInt& other ){
      other1.current=range(other1,num-other1.current);
   return other1;
 }
-CircularInt operator-(){
+CircularInt CircularInt::operator-(){
     CircularInt a1 (*this);
     a1.current=range(a1,(-1)*a1.current);
     return a1;
@@ -125,16 +125,10 @@ CircularInt& operator- ( CircularInt& a, CircularInt& b ){// we use twice at the
     return a1;
 }
 
-CircularInt& operator/ ( CircularInt& other, int num ){
-    CircularInt &other1 (other);
-    if(num!=0){
-        other1.current=range(other1,other1.current/num);
-        return other1;
-}
-    else{
-        string s ="There is no number x in {1,12} such that";
-        throw s;
-    }
+CircularInt operator/ ( CircularInt& other, int num ){
+    CircularInt other1 (other);
+    other/=num;
+    return other;
 
 }
 

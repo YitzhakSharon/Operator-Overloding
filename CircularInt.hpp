@@ -24,7 +24,7 @@ class CircularInt{
     //    friend CircularInt operator%= (  CircularInt& a, int num);
     //    friend CircularInt operator^ (  CircularInt& a, int num);
     //    friend CircularInt operator^= (  CircularInt& a, int num);
-      // friend CircularInt operator/ ( CircularInt& other, int num );  // cheak divid ziro  (num!=0)
+      friend CircularInt operator/ ( CircularInt& other, int num );  // cheak divid ziro  (num!=0)
     //    friend CircularInt operator/ (int num,CircularInt& other );  // cheak divid ziro  (num!=0)
     //    friend CircularInt operator/ ( CircularInt& a, CircularInt& b );  // cheak divid ziro  - current =!0 return 1
 
