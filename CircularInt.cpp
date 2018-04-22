@@ -109,18 +109,17 @@ istream& operator >> (istream& is,CircularInt& ci){
     ci.current=range(ci,ci.current);
     return is;
 }
+// int main(){
 
-int main(){
+// CircularInt hour (1, 12);  
+//  cin>>hour;
+//  cout<<hour<<endl;               // <hour is an integer between 1 and 12, like an hour on the clock>
+//  hour=hour+4;
+//  hour=hour+3;
+//  hour=hour/-2;
+//  cout <<"divide:  "<< hour.current << endl;         // 5
 
-CircularInt hour (1, 12);  
-// cin>>hour;
-// cout<<hour<<endl;               // <hour is an integer between 1 and 12, like an hour on the clock>
-// hour=hour+4;
-// hour=hour+3;
-// hour=hour/-2;
-// cout <<"divide:  "<< hour.current << endl;         // 5
-
-// hour=hour+18;
-//   cout << hour.current << endl;         // 5
-return 0;
-}
+//  hour=hour+18;
+//    cout << hour << endl;         // 5
+// return 0;
+// }
