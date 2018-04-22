@@ -52,7 +52,6 @@ class CircularInt{
                 this->begin=b;
                 this->end=a;
                 this->current=this->begin;
-
             }
         };
        // CircularInt(int a, int b);

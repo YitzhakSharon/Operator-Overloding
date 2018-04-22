@@ -136,16 +136,14 @@ istream& operator >> (istream& is,CircularInt& ci){
     ci.current=range(ci,ci.current);
     return is;
 }
-int main() {
-
-	CircularInt hour(1,12);                 // <hour is an integer between 1 and 12, like an hour on the clock>
+int main(){
+	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
 	cout << hour << endl;                     // 1
-	hour += 4;
-      cout << hour << endl;         // 5
-	hour += 2;
-    hour++;
-      cout << hour << endl;     // 8
-	hour += 18; 
+	hour += 4;  
+    cout << hour << endl;         // 5
+	(hour += 2)++; 
+     cout << hour << endl;     // 8
+	hour += 18;   
     cout << hour << endl;       // 2   (18 hours after 8)
 	cout << -hour << endl;                    // 10  (2 hours before midnight)
 	hour = 1 - hour; 
@@ -163,6 +161,6 @@ int main() {
 
 	// RIDDLES (not for submission): 
 	//  * when is there exactly one answer to a/b?
-	//  * when are there two or more answers to a/b?
-//	* when is there no answer to a/b?
+//  * when are there two or more answers to a/b?
+	//	* when is there no answer to a/b?
 }
