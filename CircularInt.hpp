@@ -9,7 +9,7 @@ class CircularInt{
         int current;
     public:
         friend istream& operator>> (istream& is,CircularInt& ci);
-        friend ostream& operator<< (ostream& os, CircularInt const& ci);
+        friend ostream& operator<< (std::ostream& os, CircularInt const& ci);
         friend CircularInt& operator+ ( CircularInt& other, int num );
         friend CircularInt& operator+ ( int num, CircularInt& other );
         friend CircularInt& operator + (CircularInt& a, CircularInt& b);// we use twice at the same object

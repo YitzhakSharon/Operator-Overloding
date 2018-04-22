@@ -140,7 +140,7 @@ CircularInt& operator/ ( CircularInt& other, int num ){
     a1.current=range(a1,a1.current/num);
      return a1;
  }
-ostream& operator << (ostream& os, CircularInt const& ci) {
+ostream& operator << (std::ostream& os, CircularInt const& ci) {
     os<<ci.current;
     return os;
 }
