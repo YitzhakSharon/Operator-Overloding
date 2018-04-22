@@ -16,6 +16,7 @@ class CircularInt{
         friend CircularInt operator - (  int num,CircularInt& other );
         friend CircularInt operator - (CircularInt& other, int num );
         friend CircularInt operator- ( CircularInt& a, CircularInt& b );// we use twice at the same object - maybe we just return ziro
+        friend CircularInt operator-(CircularInt& a);
         friend CircularInt operator+= (  CircularInt& a, int num);
         friend CircularInt operator-= (  CircularInt& a, int num);
          friend  CircularInt operator ++ ( CircularInt& other);//postfix
@@ -41,22 +42,22 @@ class CircularInt{
     //    friend CircularInt operator% ();
     //    friend CircularInt operator== ( const CircularInt& a, cosnt CircularInt& b);
     //    friend CircularInt operator!= ( const CircularInt& a, cosnt CircularInt& b);
-        // friend CircularInt operator-- (const int other);
-        // friend CircularInt& operator -- ();// prefix
+        friend CircularInt operator++(const int other)  ;
+       friend CircularInt& operator ++ ();// prefix
 
 
 
    
     public:
-        // CircularInt(int a, int b):begin(a),end(b),current(a){
-        //     if(a>b){
-        //         this->begin=b;
-        //         this->end=a;
-        //         this->current=this->begin;
+        CircularInt(int a, int b):begin(a),end(b),current(a){
+            if(a>b){
+                this->begin=b;
+                this->end=a;
+                this->current=this->begin;
 
-        //     }
-        // };
-        CircularInt(int a, int b);
+            }
+        };
+       // CircularInt(int a, int b);
         CircularInt range (CircularInt& other, int temp);
         CircularInt (const CircularInt& a);
 
