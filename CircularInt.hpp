@@ -10,18 +10,18 @@ class CircularInt{
     public:
         friend istream& operator>> (istream& is,CircularInt& ci);
         friend ostream& operator<< (ostream& os, CircularInt const& ci);
-        friend CircularInt operator+ ( CircularInt& other, int num );
-        friend CircularInt operator+ ( int num, CircularInt& other );
-        friend CircularInt operator + (CircularInt& a, CircularInt& b);// we use twice at the same object
-        friend CircularInt operator - (  int num,CircularInt& other );
-        friend CircularInt operator - (CircularInt& other, int num );
-        friend CircularInt operator- ( CircularInt& a, CircularInt& b );// we use twice at the same object - maybe we just return ziro
-        friend CircularInt operator-(CircularInt& a);
-        friend CircularInt operator+= (  CircularInt& a, int num);
-        friend CircularInt operator-= (  CircularInt& a, int num);
+        friend CircularInt& operator+ ( CircularInt& other, int num );
+        friend CircularInt& operator+ ( int num, CircularInt& other );
+        friend CircularInt& operator + (CircularInt& a, CircularInt& b);// we use twice at the same object
+        friend CircularInt& operator - (  int num,CircularInt& other );
+        friend CircularInt& operator - (CircularInt& other, int num );
+        friend CircularInt& operator- ( CircularInt& a, CircularInt& b );// we use twice at the same object - maybe we just return ziro
+        friend CircularInt& operator-(CircularInt& a);
+        friend CircularInt& operator+= (  CircularInt& a, int num);
+        friend CircularInt& operator-= (  CircularInt& a, int num);
         // friend CircularInt& operator ++ ();// prefix
 
-        friend CircularInt operator/= (  CircularInt& a, int num);
+        friend CircularInt& operator/= (  CircularInt& a, int num);
     //    friend CircularInt operator%= (  CircularInt& a, int num);
     //    friend CircularInt operator^ (  CircularInt& a, int num);
     //    friend CircularInt operator^= (  CircularInt& a, int num);
@@ -34,10 +34,10 @@ class CircularInt{
     //    friend CircularInt operator< ( const CircularInt& a, cosnt CircularInt& b);
     //    friend CircularInt operator<= ( const CircularInt& a, cosnt CircularInt& b);
     //    friend CircularInt operator>= ( const CircularInt& a, cosnt CircularInt& b);
-        friend CircularInt operator* ( CircularInt& other, int num);
-        friend CircularInt operator* ( CircularInt& a,CircularInt& b );//we use twice at the same object
-        friend CircularInt operator* ( int num, CircularInt& other);
-        friend CircularInt operator*= (  CircularInt& a, int num);
+        friend CircularInt& operator* ( CircularInt& other, int num);
+        friend CircularInt& operator* ( CircularInt& a,CircularInt& b );//we use twice at the same object
+        friend CircularInt& operator* ( int num, CircularInt& other);
+        friend CircularInt& operator*= (  CircularInt& a, int num);
     //    friend CircularInt operator% ();
     //    friend CircularInt operator== ( const CircularInt& a, cosnt CircularInt& b);
     //    friend CircularInt operator!= ( const CircularInt& a, cosnt CircularInt& b);
