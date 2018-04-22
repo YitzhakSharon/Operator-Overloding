@@ -26,20 +26,17 @@ int range (CircularInt& other, int temp){
             while(temp<other.begin){
                 temp=temp+(other.end-other.begin+1);
             }
-            other.current=other.end-temp+1;
+            other.current=temp;
+
         }
         else if(temp>other.end){
-                    // cout<<temp<<" befor while"<<endl;
 
             while(temp>other.end){
                 temp=temp-(other.end-other.begin+1);
-                // cout<<temp<<" temp while"<<endl;
             }
-                // cout<<temp<<" temp after while"<<endl;
 
-            other.current=other.begin+temp-1;
+            other.current=temp;
         }
-    // cout<<other.current<<" temp return "<<endl;
 
         return other.current;
            
@@ -70,10 +67,6 @@ CircularInt& operator+= ( CircularInt& a, int num){
      return a1;
  }
 
-// CircularInt&operator++(){
-//     (*this) += 1;
-//     return *this;
-// }
 CircularInt& CircularInt::operator++()
 {
     (*this) += 1;
