@@ -16,7 +16,7 @@ class CircularInt{
         friend CircularInt& operator - (  int num,CircularInt& other );
         friend CircularInt& operator - (CircularInt& other, int num );
         friend CircularInt& operator- ( CircularInt& a, CircularInt& b );// we use twice at the same object - maybe we just return ziro
-         CircularInt operator-(CircularInt& a);
+         CircularInt operator-();
         friend CircularInt& operator+= (  CircularInt& a, int num);
         friend CircularInt& operator-= (  CircularInt& a, int num);
         // friend CircularInt& operator ++ ();// prefix

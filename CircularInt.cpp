@@ -108,8 +108,8 @@ CircularInt& operator - (  int num,CircularInt& other ){
      other1.current=range(other1,num-other1.current);
   return other1;
 }
-CircularInt operator-(CircularInt& a){
-    CircularInt a1 (a);
+CircularInt operator-(){
+    CircularInt a1 (*this);
     a1.current=range(a1,(-1)*a1.current);
     return a1;
 }
