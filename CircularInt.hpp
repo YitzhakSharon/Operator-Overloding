@@ -7,7 +7,7 @@ class CircularInt{
         int begin;
         int end;
         int current;
-
+    public:
         friend istream& operator>> (istream& is,CircularInt& ci);
         friend ostream& operator<< (ostream& os, CircularInt const& ci);
         friend CircularInt operator+ ( CircularInt& other, int num );
@@ -19,7 +19,6 @@ class CircularInt{
         friend CircularInt operator-(CircularInt& a);
         friend CircularInt operator+= (  CircularInt& a, int num);
         friend CircularInt operator-= (  CircularInt& a, int num);
-         friend  CircularInt operator ++ ( CircularInt& other);//postfix
         // friend CircularInt& operator ++ ();// prefix
 
         friend CircularInt operator/= (  CircularInt& a, int num);
@@ -42,13 +41,12 @@ class CircularInt{
     //    friend CircularInt operator% ();
     //    friend CircularInt operator== ( const CircularInt& a, cosnt CircularInt& b);
     //    friend CircularInt operator!= ( const CircularInt& a, cosnt CircularInt& b);
-        friend CircularInt operator++(const int other)  ;
-       friend CircularInt& operator ++ ();// prefix
+         CircularInt operator++(const int other)  ;
+        CircularInt& operator ++ ();// prefix
 
 
 
    
-    public:
         CircularInt(int a, int b):begin(a),end(b),current(a){
             if(a>b){
                 this->begin=b;
