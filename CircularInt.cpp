@@ -3,16 +3,21 @@
 #include <cmath>
 
 using namespace std;
-// CircularInt:: CircularInt(int a, int b){
-//         if(a<=b){
-//             this->begin=a;
-//             this->end=b;
-//         }else{
-//             this->begin=b;
-//             this->end=a;
-//         }
-//         this->current=begin;
-//     }
+    CircularInt:: CircularInt(int a, int b):begin(a),end(b),current(a){
+            if(a>b){
+                this->begin=b;
+                this->end=a;
+                this->current=this->begin;
+
+            }
+        };
+
+CircularInt:: CircularInt(const CircularInt& a){
+    this->begin=a.begin;
+    this->end=a.end;
+    this->current=a.current;
+};
+
 int range (CircularInt& other, int temp){
         
         if(temp>=other.begin && temp<=other.end)
@@ -58,6 +63,7 @@ CircularInt operator+= ( CircularInt& a, int num){
 //     (*this) += 1;
 //     return *this;
 // }
+
 CircularInt operator++( CircularInt& other){
     other.current=other.current+1;
     return other;
@@ -74,7 +80,7 @@ CircularInt operator* ( int num, CircularInt& other){
 }
 
  CircularInt operator* ( CircularInt& a,CircularInt& b ){
-    return b.current*a;
+    return a*b.current;
 }
 
 CircularInt operator*= (CircularInt& a, int num){
@@ -110,7 +116,7 @@ istream& operator >> (istream& is,CircularInt& ci){
     return is;
 }
 int main() {
-	CircularInt hour {1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
+	CircularInt hour{1, 12};                 // <hour is an integer between 1 and 12, like an hour on the clock>
 	cout << hour << endl;                     // 1
 	hour += 4;  cout << hour << endl;         // 5
 	(hour += 2)++;  cout << hour << endl;     // 8

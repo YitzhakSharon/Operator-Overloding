@@ -48,15 +48,17 @@ class CircularInt{
 
    
     public:
-        CircularInt(int a, int b):begin(a),end(b){
-            if(a>b){
-                this->begin=b;
-                this->end=a;
-            }
-            this->current=this->begin;
-        }
+        // CircularInt(int a, int b):begin(a),end(b),current(a){
+        //     if(a>b){
+        //         this->begin=b;
+        //         this->end=a;
+        //         this->current=this->begin;
+
+        //     }
+        // };
+        CircularInt(int a, int b);
         CircularInt range (CircularInt& other, int temp);
-        CircularInt (CircularInt& other);
+        CircularInt (const CircularInt& a);
 
 
 };
