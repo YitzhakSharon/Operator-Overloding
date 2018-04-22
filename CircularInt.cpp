@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include <string>
+#include <sstream>
 
 using namespace std;
     // CircularInt:: CircularInt(int a, int b):begin(a),end(b),current(a){
@@ -135,12 +136,27 @@ CircularInt& operator/ ( CircularInt& other, int num ){
     }
 
 }
- CircularInt& operator/= (  CircularInt& a, int num){
-    CircularInt &a1 (a);
-    a1=a1/num;
-     return a1;
- }
-std::ostream& operator << (std::ostream& os, CircularInt const& ci) {
+CircularInt& CircularInt::operator/=(const int num)
+{
+    if(this->current % num == 0)
+    {
+       this-> current /= num;
+        (*this) += 0;
+    }
+    else 
+    {
+        stringstream ss;
+        ss << "There is no number x in {" << min_range << "," << max_range << "} such that x*" << num << "=" << current_range;
+        string s = ss.str();
+        throw s;
+    }
+return *this;
+//  CircularInt& operator/= (  CircularInt& a, int num){
+//     CircularInt &a1 (a);
+//     a1=a1/num;
+//      return a1;
+//  }
+    std::ostream& operator << (std::ostream& os, CircularInt const& ci) {
     os<<ci.current;
     return os;
 }
