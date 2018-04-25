@@ -19,29 +19,25 @@ class CircularInt{
          CircularInt operator-();
         friend CircularInt& operator+= (  CircularInt& a, int num);
         friend CircularInt& operator-= (  CircularInt& a, int num);
-        // friend CircularInt& operator ++ ();// prefix
-
-    //    friend CircularInt operator%= (  CircularInt& a, int num);
     //    friend CircularInt operator^ (  CircularInt& a, int num);
     //    friend CircularInt operator^= (  CircularInt& a, int num);
       friend CircularInt operator/ ( CircularInt& other, int num );  // cheak divid ziro  (num!=0)
-    //    friend CircularInt operator/ (int num,CircularInt& other );  // cheak divid ziro  (num!=0)
-    //    friend CircularInt operator/ ( CircularInt& a, CircularInt& b );  // cheak divid ziro  - current =!0 return 1
+    friend CircularInt operator/ ( CircularInt& a, CircularInt& b );  // cheak divid ziro  - current =!0 return 1
 
-//hadar:
- //    friend CircularInt operator> ( const CircularInt& a, cosnt CircularInt& b);
-    //    friend CircularInt operator< ( const CircularInt& a, cosnt CircularInt& b);
-    //    friend CircularInt operator<= ( const CircularInt& a, cosnt CircularInt& b);
-    //    friend CircularInt operator>= ( const CircularInt& a, cosnt CircularInt& b);
         friend CircularInt& operator* ( CircularInt& other, int num);
         friend CircularInt& operator* ( CircularInt& a,CircularInt& b );//we use twice at the same object
         friend CircularInt& operator* ( int num, CircularInt& other);
         friend CircularInt& operator*= (  CircularInt& a, int num);
         CircularInt& operator/= ( const int num);
-    //    friend CircularInt operator% ();
-    //    friend CircularInt operator== ( const CircularInt& a, cosnt CircularInt& b);
-    //    friend CircularInt operator!= ( const CircularInt& a, cosnt CircularInt& b);
-         CircularInt operator++(const int other)  ;
+        friend bool operator==(const CircularInt a , const CircularInt b);
+        friend bool operator!=(const CircularInt a , const CircularInt b); 
+        friend bool operator>(const CircularInt a , const CircularInt b); 
+        friend bool operator<(const CircularInt a , const CircularInt b);  
+        friend bool operator>=(const CircularInt a , const CircularInt b); 
+        friend bool operator<=(const CircularInt a , const CircularInt b);
+        friend const CircularInt operator% (const CircularInt& a , const int num);
+        friend const  CircularInt operator%=(const CircularInt a , const CircularInt b);
+        CircularInt operator++(const int other)  ;
         CircularInt& operator ++ ();// prefix
 
 

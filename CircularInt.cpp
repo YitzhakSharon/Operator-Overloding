@@ -147,7 +147,16 @@ CircularInt& CircularInt::operator/=(const int num)
         throw s;
     }
     return *this;
-}    std::ostream& operator << (std::ostream& os, CircularInt const& ci) {
+}    
+CircularInt operator/ ( CircularInt& a, CircularInt& b ){
+    CircularInt other(a);
+    if(b.current!=0){
+        other.current=range(a,a.current/b.current);
+        return other;
+    }
+    return other;
+}
+std::ostream& operator << (std::ostream& os, CircularInt const& ci){
     os<<ci.current;
     return os;
 }
@@ -155,4 +164,33 @@ istream& operator >> (istream& is,CircularInt& ci){
     is>>ci.current;
     ci.current=range(ci,ci.current);
     return is;
+}
+
+bool operator==(const CircularInt a , const CircularInt b){
+    return a.begin==b.begin && a.current==b.current && a.end==b.end;
+}
+bool operator!=(const CircularInt a , const CircularInt b){
+    return a.begin!=b.begin && a.current!=b.current && a.end!=b.end;
+}
+bool operator>(const CircularInt a , const CircularInt b){
+    return a.current>b.current;
+}
+bool operator<(const CircularInt a , const CircularInt b){
+    return  a.current<b.current;
+}
+bool operator>=(const CircularInt a , const CircularInt b){
+    return a.current>=b.current;
+}
+bool operator<=(const CircularInt a , const CircularInt b){
+    return  a.current<=b.current;
+}
+const CircularInt operator% (const CircularInt& a , const int num){
+    CircularInt a1 (a);
+    a1.current=range(a1,a1.current%num);
+    return a1;
+}
+const CircularInt operator % (const CircularInt& a , const CircularInt& b){
+    CircularInt a1 (a);
+    a1.current=range(a1,a1.current%b.current);
+    return a1;
 }
