@@ -89,13 +89,13 @@ bool operator== (CircularInt const& a, CircularInt const& b){return a.begin==b.b
 
 // +	
 CircularInt operator+  (CircularInt c1, CircularInt const& c2){
-    CircularInt a1 (a);
-    a1.current=range(a1,a1.current+b.current);
+    CircularInt a1 (c1);
+    a1.current=range(a1,a1.current+c2.current);
     return a1;
 }
 
 CircularInt operator+  (CircularInt c, int const& num){
-    CircularInt a1 (a);
+    CircularInt a1 (c);
     a1.current =range(a1,a1.current+num);
     return a1;
 }
@@ -122,13 +122,13 @@ CircularInt CircularInt::operator++( int other){
 
 CircularInt operator+=  (CircularInt& c1, CircularInt const& c2){
 
-   CircularInt a1 (a);
+   CircularInt a1 (c1);
     a1.current=range(a1,a1.current+c2.current);
     return a1;
  }
 
- CircularInt operator+=  (CircularInt& c, int const& num);{
-    CircularInt a1 (a);
+ CircularInt operator+=  (CircularInt& c, int const& num){
+    CircularInt a1 (c);
     a1.current=range(a1,a1.current+num);
     return a1;
 }
@@ -145,7 +145,7 @@ CircularInt operator-(CircularInt c, int const& num){
     a1.current=range(a1,a1.current-num);
     return a1;
 }
-CCircularInt operator-  (int const& num, CircularInt c){
+CircularInt operator-  (int const& num, CircularInt c){
      CircularInt a1 (c);
     a1.current=range(a1,num-a1.current);
     return a1;
@@ -154,13 +154,13 @@ CCircularInt operator-  (int const& num, CircularInt c){
 //-=
 
 CircularInt operator-=  (CircularInt& c1, CircularInt const& c2) {
-  CircularInt a1 (a);
+  CircularInt a1 (c1);
     a1.current=range(a1,a1.current-c2.current);
     return a1;
 }
 
-CCircularInt operator-=  (CircularInt& c, int const& num){
-	CircularInt a1 (a);
+CircularInt operator-=  (CircularInt& c, int const& num){
+	CircularInt a1 (c);
     a1.current=range(a1,a1.current-num);
     return a1;
 }
@@ -168,7 +168,7 @@ CCircularInt operator-=  (CircularInt& c, int const& num){
 //*
 
  CircularInt operator*  (CircularInt c1, CircularInt const& c2){
-    CircularInt a1 (a);
+    CircularInt a1 (c1);
     a1.current=range(a1,a1.current*c2.current);
     return a1;
 }
@@ -179,7 +179,7 @@ CircularInt operator*  (CircularInt c, int const& num){
 }
 
 CircularInt operator*  (int const& num, CircularInt c){
-    CircularInt a1 (a);
+    CircularInt a1 (c);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
@@ -187,12 +187,13 @@ CircularInt operator*  (int const& num, CircularInt c){
 // *=
 
  CircularInt operator*=  (CircularInt& c1, CircularInt const& c2){
-    CircularInt a1 (a);
+    CircularInt a1 (c1);
     a1.current=range(a1,a1.current*c2.current);
     return a1;
 }
+
 CircularInt operator*=  (CircularInt& c, int const& num) {
-    CircularInt &a1 (a);
+    CircularInt a1 (c);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
@@ -201,20 +202,19 @@ CircularInt operator*=  (CircularInt& c, int const& num) {
 // /
 
 CircularInt operator/= (CircularInt& c, int const& num)  {
-
+        CircularInt a1 (c);
      if(c.current % num == 0 && num!=0){
-        CircularInt a1 (a);
         a1.current =range(a1,a1.current/num);
         return a1;
 
     }
     else {
         stringstream ss;
-        ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
+        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
         string s = ss.str();
         throw s;
     }
-    return a;
+    return a1;
 }    
 
 CircularInt operator/ ( CircularInt& c1, CircularInt const& c2 ){
@@ -227,49 +227,49 @@ CircularInt operator/ ( CircularInt& c1, CircularInt const& c2 ){
 }
 
  CircularInt operator/ (int const& num, CircularInt c){
+     CircularInt a1 (c);
     if(num % c.current == 0 && c.current!=0){
-        CircularInt a1 (c);
         a1.current =range(a1,num/a1.current);
         return a1;
 
     }
     else {
         stringstream ss;
-        ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
+        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
         string s = ss.str();
         throw s;
     }
-    return c;
+    return a1;
 
 
     }
 
 CircularInt operator/ (CircularInt c, int const& num){
-	if(a.current!=0 && num%a.current==0){
-		CircularInt a1(a);
+	if(c.current!=0 && num%c.current==0){
+		CircularInt a1(c);
 		 a1.current=range(a1,num/a1.current);
 		return a1;
 		}
 	else{
-		return a;
+		return c;
 		}
 }
 
 // =/
  CircularInt operator/= (CircularInt& c1, CircularInt const& c2){
-	CircularInt a1(a);
+	CircularInt a1(c1);
 	if(a1.current%c2.current==0 &&c2.current!=0){
         a1.current=range(a1,a1.current/c2.current);
-    return a1;
 
     }
     else{
         stringstream ss;
-        ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
+        ss << "There is no number x in {" << c1.begin << "," << c1.end << "} such that x*" <<  c2.current<< "=" << c1.current;
         string s = ss.str();
         throw s;
  
     }
+    return a1;
 }
 
 
