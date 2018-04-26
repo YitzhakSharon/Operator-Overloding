@@ -56,7 +56,7 @@ istream& operator >> (istream& is,CircularInt& ci){
     return is;
 }
 // <
-bool operator <( CircularInt const& a ,  CircularInt const& b){return a.current>b.current;}
+bool operator <( CircularInt const& a ,  CircularInt const& b){return a.current<b.current;}
 bool operator<(CircularInt const& a, int const& num){return a.current<num;}
 bool operator<(int const& num,CircularInt const& a){return num<a.current;}
 
@@ -79,7 +79,7 @@ bool operator== (CircularInt const& a, CircularInt const& b){return a.begin==b.b
 //<=
  bool operator<= (CircularInt const& a, CircularInt const& b){return a.current<=b.current;}
  bool operator<= (CircularInt const& a, int const& num){return a.current<=num;}
- bool operator<= (int const& num, CircularInt const& a){return num<a.current;}
+ bool operator<= (int const& num, CircularInt const& a){return num<=a.current;}
 
 //=>
 
