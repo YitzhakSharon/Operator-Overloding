@@ -42,7 +42,9 @@ class CircularInt{
     friend bool operator>= (int const& num, CircularInt const& a);
 
     // Algebra
-        
+    friend CircularInt operator= (int const& num);
+    friend CircularInt operator= (CircualrInt& a, CircularInt const& b)
+
 
 	friend CircularInt operator+  (CircularInt c1, CircularInt const& c2);
 	friend CircularInt operator+  (CircularInt c, int const& num);
@@ -59,7 +61,7 @@ class CircularInt{
     friend CircularInt operator/ (CircularInt c1, CircularInt const& c2);
     friend CircularInt operator/ (CircularInt c, int const& num); 
     friend CircularInt operator/ (int const& num, CircularInt c);
-    
+
             CircularInt operator++(const int other)  ;
             CircularInt& operator ++ ();// prefix
 
