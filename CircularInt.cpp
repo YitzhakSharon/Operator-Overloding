@@ -13,15 +13,7 @@ using namespace std;
 
     //         }
     //     };
-std::ostream& operator << (std::ostream& os, CircularInt const& ci){
-    os<<ci.current;
-    return os;
-}
-istream& operator >> (istream& is,CircularInt& ci){
-    is>>ci.current;
-    ci.current=range(ci,ci.current);
-    return is;
-}
+
 
 CircularInt::CircularInt(const CircularInt& a){
     this->begin=a.begin;
@@ -54,9 +46,17 @@ int range (CircularInt& other, int temp){
        }
 
 
-
+std::ostream& operator << (std::ostream& os, CircularInt const& ci){
+    os<<ci.current;
+    return os;
+}
+istream& operator >> (istream& is,CircularInt& ci){
+    is>>ci.current;
+    ci.current=range(ci,ci.current);
+    return is;
+}
 // <
-bool operator <(const CircularInt const& a ,  CircularInt const& b){return a.current>b.current;}
+bool operator <( CircularInt const& a ,  CircularInt const& b){return a.current>b.current;}
 bool operator<(CircularInt const& a, int const& num){return a.current<num;}
 bool operator<(int const& num,CircularInt const& a){return num<a.current;}
 
@@ -64,17 +64,17 @@ bool operator<(int const& num,CircularInt const& a){return num<a.current;}
 //> 
 bool operator> (CircularInt const& a, CircularInt const& b){return a.current>b.current;}
 bool operator> (CircularInt const& a, int const& num){ return a.current>num;}
-friend bool operator> (int const& num, CircularInt const& a){num>a.current;}
+bool operator> (int const& num, CircularInt const& a){return num>a.current;}
 
 //==
 bool operator== (CircularInt const& a, CircularInt const& b){return a.begin==b.begin && a.current==b.current && a.end==b.end;}
-friend bool operator== (CircularInt const& a, int const& num){return a.current==num;}
-friend bool operator== (int const& num, CircularInt const& a){return a.current==num;}
+ bool operator== (CircularInt const& a, int const& num){return a.current==num;}
+ bool operator== (int const& num, CircularInt const& a){return a.current==num;}
 
 //!=
-friend bool operator!= (CircularInt const& a, CircularInt const& b){return a.begin!=b.begin && a.current!=b.current && a.end!=b.end;}
-friend bool operator!= (CircularInt const& a, int const& num){return a.current!=num;}
-friend bool operator!= (int const& num, CircularInt const& a){return a.current!=num;}
+ bool operator!= (CircularInt const& a, CircularInt const& b){return a.begin!=b.begin && a.current!=b.current && a.end!=b.end;}
+ bool operator!= (CircularInt const& a, int const& num){return a.current!=num;}
+ bool operator!= (int const& num, CircularInt const& a){return a.current!=num;}
 
 //<=
  bool operator<= (CircularInt const& a, CircularInt const& b){return a.current<=b.current;}
@@ -85,33 +85,34 @@ friend bool operator!= (int const& num, CircularInt const& a){return a.current!=
 
  bool operator>= (CircularInt const& a, CircularInt const& b){return a.current>=b.current;}
  bool operator>= (CircularInt const& a, int const& num){return a.current>=num;}
- bool operator>= (int const& num, CircularInt const& a){return num=>a.current}
+ bool operator>= (int const& num, CircularInt const& a){return num>=a.current;}
 
 // +	
-CircularInt& operator+  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
+CircularInt operator+  (CircularInt c1, CircularInt const& c2){
+    CircularInt a1 (a);
     a1.current=range(a1,a1.current+b.current);
     return a1;
 }
 
-CircularInt& operator+  (CircularInt  cosnt& a, int const& num){
-    CircularInt &a1 (a);
+CircularInt operator+  (CircularInt c, int const& num){
+    CircularInt a1 (a);
     a1.current =range(a1,a1.current+num);
     return a1;
 }
 
 
-CircularInt& operator+  (int const& num, CircularInt a){
- CircularInt &a1 (a);
+CircularInt operator+  ( int const& num,  CircularInt a){
+ CircularInt a1 (a);
     a1.current =range(a1,a1.current+num);
     return a1;
 }
+
 CircularInt& CircularInt::operator++()
 {
     (*this) += 1;
     return *this;
 }
-CircularInt CircularInt::operator++(const int other){
+CircularInt CircularInt::operator++( int other){
     CircularInt aa (*this);
     ++(*this);
     return aa ;
@@ -119,94 +120,93 @@ CircularInt CircularInt::operator++(const int other){
 
 //+=
 
-CircularInt& operator+=  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
-    a1.current=range(a1,a1.current+b.current);
+CircularInt operator+=  (CircularInt& c1, CircularInt const& c2){
+
+   CircularInt a1 (a);
+    a1.current=range(a1,a1.current+c2.current);
     return a1;
  }
 
-CircularInt& operator+=  (CircularInt cosnt& a, int const& num){
-    CircularInt &a1 (a);
+ CircularInt operator+=  (CircularInt& c, int const& num);{
+    CircularInt a1 (a);
     a1.current=range(a1,a1.current+num);
     return a1;
- 
 }
 
 //-
 
-CircularInt& operator-  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
-    a1.current=range(a1,a1.current-b.current);
+CircularInt operator-(CircularInt c1, CircularInt const& c2){
+    CircularInt a1 (c1);
+    a1.current=range(a1,a1.current-c2.current);
     return a1;
 }
-CircularInt& operator-  (CircularInt const& a, int const& num){
-    CircularInt &a1 (a);
+CircularInt operator-(CircularInt c, int const& num){
+    CircularInt a1 (c);
     a1.current=range(a1,a1.current-num);
     return a1;
 }
-CircularInt& operator-  (int const& num, CircularInt const& a){
-     CircularInt &a1 (a);
+CCircularInt operator-  (int const& num, CircularInt c){
+     CircularInt a1 (c);
     a1.current=range(a1,num-a1.current);
     return a1;
 }
 
 //-=
 
-CircularInt operator-=  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
-    a1.current=range(a1,a1.current-b.current);
+CircularInt operator-=  (CircularInt& c1, CircularInt const& c2) {
+  CircularInt a1 (a);
+    a1.current=range(a1,a1.current-c2.current);
     return a1;
 }
 
-CircularInt operator-=  (CircularInt cosnt& a, int const& num){
-	CircularInt &a1 (a);
+CCircularInt operator-=  (CircularInt& c, int const& num){
+	CircularInt a1 (a);
     a1.current=range(a1,a1.current-num);
     return a1;
 }
 
 //*
 
- CircularInt& operator*  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
-    a1.current=range(a1,a1.current*b.current);
+ CircularInt operator*  (CircularInt c1, CircularInt const& c2){
+    CircularInt a1 (a);
+    a1.current=range(a1,a1.current*c2.current);
     return a1;
 }
-CircularInt& operator*  (CircularInt const& a, int const& num){
-    CircularInt &a1 (a);
+CircularInt operator*  (CircularInt c, int const& num){
+    CircularInt &a1 (c);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
-CircularInt& operator*  (int const& num, CircularInt const& a){
-    CircularInt &a1 (a);
+
+CircularInt operator*  (int const& num, CircularInt c){
+    CircularInt a1 (a);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
 
 // *=
 
- CircularInt& operator*=  (CircularInt const& a, CircularInt const& b){
-    CircularInt &a1 (a);
-    a1.current=range(a1,a1.current*b.current);
+ CircularInt operator*=  (CircularInt& c1, CircularInt const& c2){
+    CircularInt a1 (a);
+    a1.current=range(a1,a1.current*c2.current);
     return a1;
 }
- CircularInt& operator*=  (CircularInt const& a, int const& num){ 
+CircularInt operator*=  (CircularInt& c, int const& num) {
     CircularInt &a1 (a);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
 
+
 // /
-CircularInt operator/ ( CircularInt const& a, int const& num ){
-    CircularInt other1 (other);
-    other/=num;
-    return other;
 
-}
+CircularInt operator/= (CircularInt& c, int const& num)  {
 
-CircularInt& CircularInt::operator/=(const int num){
-    if(current % num == 0){
-        current /= num;
-        (*this) += 0;
+     if(c.current % num == 0 && num!=0){
+        CircularInt a1 (a);
+        a1.current =range(a1,a1.current/num);
+        return a1;
+
     }
     else {
         stringstream ss;
@@ -214,21 +214,40 @@ CircularInt& CircularInt::operator/=(const int num){
         string s = ss.str();
         throw s;
     }
-    return *this;
+    return a;
 }    
-CircularInt operator/ ( CircularInt const& a, CircularInt const& b ){
-    CircularInt a1(a);
-    if(b.current!=0){
-        a1.current=range(a1,a1.current/b.current);
-        return other;
+
+CircularInt operator/ ( CircularInt& c1, CircularInt const& c2 ){
+    CircularInt a1(c1);
+    if(c2.current!=0){
+        a1.current=range(a1,a1.current/c2.current);
+        return a1;
     }
-    return other;
+    return a1;
 }
 
-CircularInt operator/  (int const& num, CircularInt const& a){
+ CircularInt operator/ (int const& num, CircularInt c){
+    if(num % c.current == 0 && c.current!=0){
+        CircularInt a1 (c);
+        a1.current =range(a1,num/a1.current);
+        return a1;
+
+    }
+    else {
+        stringstream ss;
+        ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
+        string s = ss.str();
+        throw s;
+    }
+    return c;
+
+
+    }
+
+CircularInt operator/ (CircularInt c, int const& num){
 	if(a.current!=0 && num%a.current==0){
 		CircularInt a1(a);
-		 a1.current=range(a1,num/a.current);
+		 a1.current=range(a1,num/a1.current);
 		return a1;
 		}
 	else{
@@ -237,55 +256,65 @@ CircularInt operator/  (int const& num, CircularInt const& a){
 }
 
 // =/
- CircularInt operator/=  (CircularInt cosnt& a, CircularInt const& b){
+ CircularInt operator/= (CircularInt& c1, CircularInt const& c2){
 	CircularInt a1(a);
-	a1=a/b;
-	return a1;
-}
+	if(a1.current%c2.current==0 &&c2.current!=0){
+        a1.current=range(a1,a1.current/c2.current);
+    return a1;
 
-
-CircularInt& CircularInt::operator/=(const int num){
-    if(current % num == 0){
-        current /= num;
-        (*this) += 0;
     }
-    else {
+    else{
         stringstream ss;
         ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
         string s = ss.str();
         throw s;
+ 
     }
-    return *this;
-}  
+}
+
+
+// CircularInt& CircularInt::operator/=(const int num){
+//     if(current % num == 0){
+//         current /= num;
+//         (*this) += 0;
+//     }
+//     else {
+//         stringstream ss;
+//         ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
+//         string s = ss.str();
+//         throw s;
+//     }
+//     return *this;
+// }  
 
 // %
 
-const CircularInt operator % (const CircularInt& a , const CircularInt& b){
+const CircularInt operator % ( CircularInt& a ,  CircularInt& b){
     CircularInt a1 (a);
     a1.current=range(a1,a1.current%b.current);
     return a1;
 }
 
-CircularInt operator% ( CircularInt const& a ,  int const& num){
+CircularInt operator% ( CircularInt & a ,  int & num){
     CircularInt a1 (a);
     a1.current=range(a1,a1.current%num);
     return a1;
 }
-CircularInt operator%  (int const& num, CircularInt const& a){
+CircularInt operator%  (int  num, CircularInt& a){
 	  CircularInt a1 (a);
     	a1.current=range(a1,num&a1.current);
-	returb a1;
+	return a1;
 }
 
 //%=
 
-CircularInt operator%=  (CircularInt const& a, CircularInt const& b){
+CircularInt operator%=  (CircularInt& a, CircularInt& b){
 
     CircularInt a1 (a);
     a1.current=range(a1,a1.current%b.current);
     return a1;
 }
- CircularInt operator%=  (CircularInt& a, int const& num);
+ CircularInt operator%=  (CircularInt& a, int num){
 
     CircularInt a1 (a);
     a1.current=range(a1,a1.current%num);
@@ -330,16 +359,16 @@ CircularInt operator%=  (CircularInt const& a, CircularInt const& b){
 //      return a1;
 //  }
 
-CircularInt& CircularInt::operator++()
-{
-    (*this) += 1;
-    return *this;
-}
-CircularInt CircularInt::operator++(const int other){
-    CircularInt aa (*this);
-    ++(*this);
-    return aa ;
-}
+// CircularInt& CircularInt::operator++()
+// {
+//     (*this) += 1;
+//     return *this;
+// }
+// CircularInt CircularInt::operator++(const int other){
+//     CircularInt aa (*this);
+//     ++(*this);
+//     return aa ;
+// }
 // CircularInt& operator* (  CircularInt& other, int num){ 
 //     CircularInt &other1 (other);
 //     int temp = other1.current*num;

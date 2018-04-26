@@ -9,8 +9,8 @@ class CircularInt{
         int current;
     public:
     //
-    friend istream& operator>> (istream& is,CircularInt& ci);
-    friend ostream& operator<< (std::ostream& os, CircularInt const& ci);
+    friend istream& operator >> (istream& is,CircularInt& ci);
+    friend ostream& operator << (std::ostream& os, CircularInt const& ci);
     friend CircularInt operator~ (CircularInt const c);
     friend CircularInt operator- (CircularInt const c);
     // CircularInt operator-();
@@ -43,78 +43,40 @@ class CircularInt{
 
     // Algebra
         
-    friend CircularInt& operator+  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator+  (CircularInt const& a, int const& num);	
-    friend CircularInt& operator+  (int const& num, CircularInt const& a);
 
+	friend CircularInt operator+  (CircularInt c1, CircularInt const& c2);
+	friend CircularInt operator+  (CircularInt c, int const& num);
+	friend CircularInt operator+  (int const& num, CircularInt c);
+
+	friend CircularInt operator-  (CircularInt c1, CircularInt const& c2);
+	friend CircularInt operator-  (CircularInt c, int const& num);
+	friend CircularInt operator-  (int const& num, CircularInt c);
+
+	friend CircularInt operator*  (CircularInt c1, CircularInt const& c2);	
+	friend CircularInt operator*  (CircularInt c, int const& num);	
+	friend CircularInt operator*  (int const& num, CircularInt c);
+
+    friend CircularInt operator/ (CircularInt c1, CircularInt const& c2);
+    friend CircularInt operator/ (CircularInt c, int const& num); 
+    friend CircularInt operator/ (int const& num, CircularInt c);
+    
             CircularInt operator++(const int other)  ;
             CircularInt& operator ++ ();// prefix
 
-    friend CircularInt& operator+=  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator+=  (CircularInt const& a, int const& num);
+    friend CircularInt operator+=  (CircularInt& c1, CircularInt const& c2);
+    friend CircularInt operator+=  (CircularInt& c, int const& num);	
 
-    friend CircularInt& operator-  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator-  (CircularInt const& a, int const& num);
-    friend CircularInt& operator-  (int const& num, CircularInt const& a);
+	friend CircularInt operator-=  (CircularInt& c1, CircularInt const& c2);
+    friend CircularInt operator-=  (CircularInt& c, int const& num);	
 
-    friend CircularInt& operator-=  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator-=  (CircularInt cosnt& a, int const& num);
+	friend CircularInt operator*=  (CircularInt& c1, CircularInt const& c2);
+    friend CircularInt operator*=  (CircularInt& c, int const& num);
 
-    friend CircularInt& operator*  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator*  (CircularInt const& a, int const& num);
-    friend CircularInt& operator*  (int const& num, CircularInt const& a);
-
-    friend CircularInt& operator*=  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt& operator*=  (CircularInt const& a, int const& num);
-
-    friend CircularInt operator/  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt operator/  (int const& num, CircularInt const& a);
-    friend CircularInt operator/ ( CircularInt& a, int num );
-
-    friend CircularInt operator/=  (CircularInt cosnt& a, CircularInt const& b);
-    friend CircularInt& operator/=  (int const& num);
-
-    friend CircularInt operator%  (CircularInt const& a, CircularInt const& c2);
-    friend CircularInt operator%  (CircularInt const& a, int const& num);
-    friend CircularInt operator%  (int const& num, CircularInt const& a);
-
-    friend CircularInt operator%=  (CircularInt const& a, CircularInt const& b);
-    friend CircularInt operator%=  (CircularInt& a, int const& num);
-
-    friend CircularInt operator^  (CircularInt c1, CircularInt const& c2);
-    friend CircularInt operator^  (CircularInt c, int const& num);
-    friend CircularInt operator^  (int const& num, CircularInt c);
-
-    friend CircularInt operator^=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator^=  (CircularInt& c, int const& num);
+    friend CircularInt operator/= (CircularInt& c1, CircularInt const& c2);
+    friend CircularInt operator/= (CircularInt& c, int const& num); 
 
 
-    //binary
-    friend CircularInt operator|  (CircularInt c1, CircularInt const& c2);
-    friend CircularInt operator|  (CircularInt c, int const& num);	
-    friend CircularInt operator|  (int const& num, CircularInt c);
 
-    friend CircularInt operator|=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator|=  (CircularInt& c, int const& num);
-
-    friend CircularInt operator&  (CircularInt c1, CircularInt const& c2);		
-    friend CircularInt operator&  (CircularInt c, int const& num);		
-    friend CircularInt operator&  (int const& num, CircularInt c);
-
-    friend CircularInt operator&=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator&=  (CircularInt& c, int const& num);
-
-    friend CircularInt operator<< (CircularInt c1, CircularInt const& c2);
-    friend CircularInt operator<< (CircularInt c, int const& num);
-    friend CircularInt operator<< (int const& num, CircularInt c);
-    friend CircularInt operator>> (CircularInt c1, CircularInt const& c2);
-    friend CircularInt operator>> (CircularInt c, int const& num);
-    friend CircularInt operator>> (int const& num, CircularInt c);
-
-    friend CircularInt operator<<= (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator<<= (CircularInt& c, int const& num);	
-    friend CircularInt operator>>= (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator>>= (CircularInt& c, int const& num);
     
     CircularInt(int a, int b):begin(a),end(b),current(a){
             if(a>b){
