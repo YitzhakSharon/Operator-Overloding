@@ -87,18 +87,31 @@ bool operator== (CircularInt const& a, CircularInt const& b){return a.begin==b.b
  bool operator>= (CircularInt const& a, int const& num){return a.current>=num;}
  bool operator>= (int const& num, CircularInt const& a){return num>=a.current;}
 
-  CircularInt CircularInt::operator=(const int num)
-{
-    this->current = num;
-    (*this) += 0;
-    return *this;
-}
-CircularInt CircularInt::operator=(const CircularInt& c){
-    CircularInt a (c);
-    a.current=c.current;
-    return a; 
+void CircularInt::operator=(int n){
+    current = n;
+    int numVal = this ->end - this->begin + 1;
+    if(current > this->end){
+        while(current > this->end)
+            current -= numVal;
+    }
+    else if(current < this->begin){
+        while(current < this->begin)
+            current += numVal;    
+    }    
 }
 
+void CircularInt::operator=(CircularInt cir){
+    current = cir.current;
+    int numVal = cir.end - cir.begin + 1;
+    if(current > cir.end){
+        while(current > cir.end)
+            current -= numVal;
+    }
+    else if(current <cir.begin){
+        while(current < cir.begin)
+            current += numVal;    
+    }    
+}
 // +	
 CircularInt operator+  (CircularInt c1, CircularInt const& c2){
     CircularInt a1 (c1);

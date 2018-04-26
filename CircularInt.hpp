@@ -41,8 +41,6 @@ class CircularInt{
     friend bool operator>= (int const& num, CircularInt const& a);
 
     // Algebra
-     CircularInt operator=(const CircularInt& c);
-     CircularInt operator=(const int num);
 	friend CircularInt operator+  (CircularInt c1, CircularInt const& c2);
 	friend CircularInt operator+  (CircularInt c, int const& num);
 	friend CircularInt operator+  (int const& num, CircularInt c);
@@ -88,8 +86,10 @@ public:
        // CircularInt(int a, int b);
     CircularInt range (CircularInt& other, int temp);
     CircularInt (const CircularInt& a);
-    CircularInt operator= (CircularInt& a, int const& num);
-    CircularInt operator= (CircularInt& a, CircularInt const& b);
+    // CircularInt operator= (CircularInt& a, int const& num);
+    // CircularInt operator= (CircularInt& a, CircularInt const& b);
+    void operator=( CircularInt c);
+    void operator=( int num);
 
 
 };
