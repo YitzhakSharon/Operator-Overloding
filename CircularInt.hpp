@@ -59,6 +59,8 @@ class CircularInt{
 
             CircularInt operator++(const int other)  ;
             CircularInt& operator ++ ();// prefix
+            CircularInt& operator -- ();
+             CircularInt operator--(const int other)  ;
 
     friend CircularInt operator+=  (CircularInt& c1, CircularInt const& c2);
     friend CircularInt operator+=  (CircularInt& c, int const& num);	

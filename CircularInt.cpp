@@ -159,6 +159,16 @@ CircularInt operator+=  (CircularInt& c1, CircularInt const& c2){
 }
 
 //-
+CircularInt& CircularInt::operator--(){
+    (*this) -= 1;
+    return *this;
+}
+CircularInt CircularInt::operator--( int other){
+    CircularInt aa (*this);
+    --
+    (*this);
+    return aa ;
+}
 
 CircularInt operator-(CircularInt c1, CircularInt const& c2){
     CircularInt a1 (c1);
