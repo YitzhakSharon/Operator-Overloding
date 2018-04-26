@@ -165,8 +165,7 @@ CircularInt& CircularInt::operator--(){
 }
 CircularInt CircularInt::operator--( int other){
     CircularInt aa (*this);
-    --
-    (*this);
+    --(*this);
     return aa ;
 }
 
@@ -236,25 +235,10 @@ CircularInt operator*=  (CircularInt& c, int const& num) {
 
 // /
 
-CircularInt operator/= (CircularInt& c, int const& num)  {
-        CircularInt a1 (c);
-     if(c.current % num == 0 && num!=0){
-        a1.current =range(a1,a1.current/num);
-        return a1;
-
-    }
-    else {
-        stringstream ss;
-        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
-        string s = ss.str();
-        throw s;
-    }
-    return a1;
-}    
 
 CircularInt operator/ ( CircularInt& c1, CircularInt const& c2 ){
     CircularInt a1(c1);
-    if(c2.current!=0){
+    if(c2.current!=0 && c1.current%c2.current==0){
         a1.current=range(a1,a1.current/c2.current);
         return a1;
     }
@@ -306,21 +290,22 @@ CircularInt operator/ (CircularInt c, int const& num){
     }
     return a1;
 }
+CircularInt operator/= (CircularInt& c, int const& num)  {
+        CircularInt a1 (c);
+     if(c.current % num == 0 && num!=0){
+        a1.current =range(a1,a1.current/num);
+        return a1;
 
+    }
+    else {
+        stringstream ss;
+        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
+        string s = ss.str();
+        throw s;
+    }
+    return a1;
+}    
 
-// CircularInt& CircularInt::operator/=(const int num){
-//     if(current % num == 0){
-//         current /= num;
-//         (*this) += 0;
-//     }
-//     else {
-//         stringstream ss;
-//         ss << "There is no number x in {" << begin << "," << end << "} such that x*" << num << "=" << current;
-//         string s = ss.str();
-//         throw s;
-//     }
-//     return *this;
-// }  
 
 // %
 
