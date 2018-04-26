@@ -58,7 +58,7 @@ int range (CircularInt& other, int temp){
 // <
 bool operator <(const CircularInt const& a ,  CircularInt const& b){return a.current>b.current;}
 bool operator<(CircularInt const& a, int const& num){return a.current<num;}
-bool obool operator<(int const& num,CircularInt const& a){return num<a.current;}
+bool operator<(int const& num,CircularInt const& a){return num<a.current;}
 
 
 //> 
