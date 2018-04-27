@@ -266,7 +266,7 @@ CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
 
     }
 
-CircularInt operator/ (CircularInt c,  int  num){
+CircularInt operator/ (CircularInt& c,  int  num){
 	if( num%c.current==0){
 		CircularInt a1(c);
 		 a1.current=range(a1,num/a1.current);
@@ -308,47 +308,3 @@ CircularInt& operator/= (CircularInt& c,  int  num)  {
     }
     return a1;
 }    
-
-// // %
-
-// const CircularInt operator % ( CircularInt& a ,  CircularInt& b){
-//     CircularInt a1 (a);
-//     a1.current=range(a1,a1.current%b.current);
-//     return a1;
-// }
-
-// CircularInt operator% ( CircularInt & a ,  int & num){
-//     CircularInt a1 (a);
-//     a1.current=range(a1,a1.current%num);
-//     return a1;
-// }
-// CircularInt operator%  (int  num, CircularInt& a){
-// 	  CircularInt a1 (a);
-//     	a1.current=range(a1,num&a1.current);
-// 	return a1;
-// }
-
-// //%=
-
-// CircularInt operator%=  (CircularInt& a, CircularInt& b){
-
-//     CircularInt a1 (a);
-//     a1.current=range(a1,a1.current%b.current);
-//     return a1;
-// }
-//  CircularInt operator%=  (CircularInt& a, int num){
-
-//     CircularInt a1 (a);
-//     a1.current=range(a1,a1.current%num);
-//     return a1;
-// }
-
-
-
-
-
-
-
-
-
-       
