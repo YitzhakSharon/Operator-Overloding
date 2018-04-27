@@ -63,7 +63,7 @@ class CircularInt{
 
 	friend CircularInt& operator-=  (CircularInt& c1,  CircularInt& c2);
     friend CircularInt& operator-=  (CircularInt& c,  int  num);	
-    CircularInt&  operator *= ( int num);
+    //CircularInt&  operator *= ( int num);
     friend  CircularInt& operator*=  (CircularInt& c, int num);
     friend CircularInt& operator*=  (CircularInt& c1,  CircularInt& c2);
 
