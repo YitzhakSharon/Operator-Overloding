@@ -57,27 +57,22 @@ class CircularInt{
     friend CircularInt operator/ (CircularInt c, int const& num); 
     friend CircularInt operator/ (int const& num, CircularInt c);
 
-            CircularInt operator++(const int other)  ;
-            CircularInt& operator ++ ();// prefix
-            CircularInt& operator -- ();
-             CircularInt operator--(const int other)  ;
 
-    friend CircularInt operator+=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator+=  (CircularInt& c, int const& num);	
+    friend CircularInt operator+=  (CircularInt& c1, const CircularInt& c2);
+    friend CircularInt operator+=  (CircularInt& c,  int  num);	
 
-	friend CircularInt operator-=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator-=  (CircularInt& c, int const& num);	
+	friend CircularInt operator-=  (CircularInt& c1, const CircularInt& c2);
+    friend CircularInt operator-=  (CircularInt& c, const int  num);	
+    CircularInt&  operator *= (const int num);
+    friend  CircularInt& operator*=  (CircularInt& c, int num);
+    friend CircularInt& operator*=  (CircularInt& c1, const CircularInt& c2);
 
-	friend CircularInt operator*=  (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator*=  (CircularInt& c, int const& num);
-
-    friend CircularInt operator/= (CircularInt& c1, CircularInt const& c2);
-    friend CircularInt operator/= (CircularInt& c, int const& num); 
+    friend CircularInt operator/= (CircularInt& c1, const CircularInt& c2);
+    friend CircularInt operator/= (CircularInt& c, const int  num); 
 
 
 
 public:
-    
     CircularInt(int a, int b):begin(a),end(b),current(a){
             if(a>b){
                 this->begin=b;
@@ -88,8 +83,10 @@ public:
        // CircularInt(int a, int b);
     CircularInt range (CircularInt& other, int temp);
     CircularInt (const CircularInt& a);
-    // CircularInt operator= (CircularInt& a, int const& num);
-    // CircularInt operator= (CircularInt& a, CircularInt const& b);
+            CircularInt operator++(const int other)  ;
+            CircularInt& operator ++ ();// prefix
+            CircularInt& operator -- ();
+             CircularInt operator--(const int other)  ;
     void operator=( CircularInt c);
     void operator=( int num);
 
