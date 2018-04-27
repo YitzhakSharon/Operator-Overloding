@@ -312,22 +312,22 @@ CircularInt& operator/= (CircularInt& c,  int  num)  {
         a1=c/num;
     return a1;
 }    
-int main(){
+// int main(){
 
 
-    CircularInt a (1,10);
-    CircularInt b(2,10);
-    a.current=4;
-    b.current=2;
-    a=a/0;
-    cout<<a<<"  2"<<endl;
-    a.current=4;
-    a/=2;
-    cout<<a<<"  2"<<endl;
-    a.current=2;
-    a=4/a;
-    cout<<a<<"  2"<<endl;
+//     CircularInt a (1,10);
+//     CircularInt b(2,10);
+//     a.current=4;
+//     b.current=2;
+//     a=a/0;
+//     cout<<a<<"  2"<<endl;
+//     a.current=4;
+//     a/=2;
+//     cout<<a<<"  2"<<endl;
+//     a.current=2;
+//     a=4/a;
+//     cout<<a<<"  2"<<endl;
 
 
-return 0;
-}
+// return 0;
+// }
