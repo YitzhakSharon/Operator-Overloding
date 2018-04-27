@@ -72,7 +72,7 @@ bool operator== (CircularInt const& a, CircularInt const& b){return a.begin==b.b
  bool operator== (int const& num, CircularInt const& a){return a.current==num;}
 
 //!=
- bool operator!= (CircularInt const& a, CircularInt const& b){return a.begin!=b.begin && a.current!=b.current && a.end!=b.end;}
+ bool operator!= (CircularInt const& a, CircularInt const& b){return a.begin!=b.begin || a.current!=b.current || a.end!=b.end;}
  bool operator!= (CircularInt const& a, int const& num){return a.current!=num;}
  bool operator!= (int const& num, CircularInt const& a){return a.current!=num;}
 
