@@ -53,9 +53,9 @@ class CircularInt{
 	friend CircularInt operator*  (CircularInt& c,  int  num);	
 	friend CircularInt operator*  (int num, CircularInt c);
 
-    friend CircularInt operator/ (CircularInt& c1,  CircularInt c2);
+    friend CircularInt operator/ (CircularInt& c1,  CircularInt& c2);
     friend CircularInt operator/ (CircularInt& c,  int num); 
-    friend CircularInt operator/ ( int num, CircularInt c);
+    friend CircularInt operator/ ( int num, CircularInt& c);
 
 
     friend CircularInt& operator+=  (CircularInt& c1,  CircularInt& c2);

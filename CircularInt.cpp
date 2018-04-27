@@ -248,7 +248,7 @@ CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
     return a1;
 }
 
- CircularInt operator/ ( int  num, CircularInt c){
+ CircularInt operator/ ( int  num, CircularInt& c){
      CircularInt a1 (c);
     if(c.current!=0){
         a1.current =range(a1,num/a1.current);
@@ -267,9 +267,9 @@ CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
     }
 
 CircularInt operator/ (CircularInt& c,  int  num){
-	if( num%c.current==0){
+	if( num!=0){
 		CircularInt a1(c);
-		 a1.current=range(a1,num/a1.current);
+		 a1.current=range(a1,a1.current/num);
 		return a1;
 		}
 	else{
