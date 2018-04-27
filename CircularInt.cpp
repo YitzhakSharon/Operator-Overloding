@@ -113,20 +113,20 @@ void CircularInt::operator=(CircularInt cir){
     }    
 }
 // +	
-CircularInt operator+  (CircularInt c1, const CircularInt& c2){
+CircularInt operator+  (CircularInt c1,  CircularInt& c2){
     CircularInt a1 (c1);
     a1.current=range(a1,a1.current+c2.current);
     return a1;
 }
 
-CircularInt operator+  (CircularInt& c,const int num){
+CircularInt operator+  (CircularInt& c, int num){
     CircularInt a1 (c);
     a1.current =range(a1,a1.current+num);
     return a1;
 }
 
 
-CircularInt operator+  ( const int  num,  CircularInt& a){
+CircularInt operator+  (  int  num,  CircularInt& a){
  CircularInt a1 (a);
     a1.current =range(a1,a1.current+num);
     return a1;
@@ -170,17 +170,17 @@ CircularInt CircularInt::operator--( int other){
     return aa ;
 }
 
-CircularInt operator-(CircularInt& c1, const CircularInt& c2){
+CircularInt operator-(CircularInt& c1,  CircularInt& c2){
     CircularInt a1 (c1);
     a1.current=range(a1,a1.current-c2.current);
     return a1;
 }
-CircularInt operator-(CircularInt& c, const int num){
+CircularInt operator-(CircularInt& c,  int num){
     CircularInt a1 (c);
     a1.current=range(a1,a1.current-num);
     return a1;
 }
-CircularInt operator-  (const int num, CircularInt& c){
+CircularInt operator-  ( int num, CircularInt& c){
      CircularInt a1 (c);
     a1.current=range(a1,num-a1.current);
     return a1;
@@ -188,32 +188,32 @@ CircularInt operator-  (const int num, CircularInt& c){
 
 //-=
 
-CircularInt operator-=  (CircularInt& c1, const CircularInt& c2) {
-  CircularInt a1 (c1);
+CircularInt& operator-=  (CircularInt& c1,  CircularInt& c2) {
+  CircularInt& a1 (c1);
     a1.current=range(a1,a1.current-c2.current);
     return a1;
 }
 
-CircularInt operator-=  (CircularInt& c,const int  num){
-	CircularInt a1 (c);
+CircularInt& operator-=  (CircularInt& c, int  num){
+	CircularInt& a1 (c);
     a1.current=range(a1,a1.current-num);
     return a1;
 }
 
 //*
 
- CircularInt operator*  (CircularInt& c1, const CircularInt& c2){
+ CircularInt operator*  (CircularInt& c1,  CircularInt& c2){
     CircularInt a1 (c1);
     a1.current=range(a1,a1.current*c2.current);
     return a1;
 }
-CircularInt operator*  (CircularInt& c, const int num){
+CircularInt operator*  (CircularInt& c,  int num){
     CircularInt &a1 (c);
     a1.current=range(a1,a1.current*num);
     return a1;
 }
 
-CircularInt operator*  (const int num, CircularInt c){
+CircularInt operator*  ( int num, CircularInt c){
     CircularInt a1 (c);
     a1.current=range(a1,c.current*num);
     return a1;
@@ -221,13 +221,13 @@ CircularInt operator*  (const int num, CircularInt c){
 
 // *=
 
- CircularInt& operator *=  (CircularInt& c1, const CircularInt& c2){
+ CircularInt& operator *=  (CircularInt& c1,  CircularInt& c2){
     CircularInt& a1 (c1);
     a1=a1*c2;
     cout<<a1<<"  a1"<<endl;
     return a1;
 }
- CircularInt& operator *=  (CircularInt& c1, const int num){
+ CircularInt& operator *=  (CircularInt& c1,  int num){
     CircularInt& a1 (c1);
     a1=a1*num;
     cout<<a1<<"  a1"<<endl;
@@ -239,7 +239,7 @@ CircularInt operator*  (const int num, CircularInt c){
 // /
 
 
-CircularInt operator/ ( CircularInt& c1, const CircularInt& c2 ){
+CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
     CircularInt a1(c1);
     if(c2.current!=0 && c1.current%c2.current==0){
         a1.current=range(a1,a1.current/c2.current);
@@ -248,7 +248,7 @@ CircularInt operator/ ( CircularInt& c1, const CircularInt& c2 ){
     return a1;
 }
 
- CircularInt operator/ (const int  num, CircularInt c){
+ CircularInt operator/ ( int  num, CircularInt c){
      CircularInt a1 (c);
     if(num % c.current == 0 && c.current!=0){
         a1.current =range(a1,3);
@@ -266,7 +266,7 @@ CircularInt operator/ ( CircularInt& c1, const CircularInt& c2 ){
 
     }
 
-CircularInt operator/ (CircularInt c, const int  num){
+CircularInt operator/ (CircularInt c,  int  num){
 	if(c.current!=0 && num%c.current==0){
 		CircularInt a1(c);
 		 a1.current=range(a1,num/a1.current);
@@ -278,8 +278,8 @@ CircularInt operator/ (CircularInt c, const int  num){
 }
 
 // =/
- CircularInt operator/= (CircularInt& c1,const  CircularInt& c2){
-	CircularInt a1(c1);
+ CircularInt& operator/= (CircularInt& c1,  CircularInt& c2){
+	CircularInt& a1(c1);
 	if(a1.current%c2.current==0 &&c2.current!=0){
         a1.current=range(a1,a1.current/c2.current);
 
@@ -293,8 +293,8 @@ CircularInt operator/ (CircularInt c, const int  num){
     }
     return a1;
 }
-CircularInt operator/= (CircularInt& c, const int  num)  {
-        CircularInt a1 (c);
+CircularInt& operator/= (CircularInt& c,  int  num)  {
+        CircularInt& a1 (c);
      if(c.current % num == 0 && num!=0){
         a1.current =range(a1,a1.current/num);
         return a1;
@@ -308,41 +308,51 @@ CircularInt operator/= (CircularInt& c, const int  num)  {
     }
     return a1;
 }    
+int main(){
 
 
-// %
+    CircularInt a (1,10);
+    CircularInt b(2,10);
+    a.current=6;
+    b.current=2;
+    a/=b;
+    cout<<a<<endl;
 
-const CircularInt operator % ( CircularInt& a ,  CircularInt& b){
-    CircularInt a1 (a);
-    a1.current=range(a1,a1.current%b.current);
-    return a1;
 }
 
-CircularInt operator% ( CircularInt & a ,  int & num){
-    CircularInt a1 (a);
-    a1.current=range(a1,a1.current%num);
-    return a1;
-}
-CircularInt operator%  (int  num, CircularInt& a){
-	  CircularInt a1 (a);
-    	a1.current=range(a1,num&a1.current);
-	return a1;
-}
+// // %
 
-//%=
+// const CircularInt operator % ( CircularInt& a ,  CircularInt& b){
+//     CircularInt a1 (a);
+//     a1.current=range(a1,a1.current%b.current);
+//     return a1;
+// }
 
-CircularInt operator%=  (CircularInt& a, CircularInt& b){
+// CircularInt operator% ( CircularInt & a ,  int & num){
+//     CircularInt a1 (a);
+//     a1.current=range(a1,a1.current%num);
+//     return a1;
+// }
+// CircularInt operator%  (int  num, CircularInt& a){
+// 	  CircularInt a1 (a);
+//     	a1.current=range(a1,num&a1.current);
+// 	return a1;
+// }
 
-    CircularInt a1 (a);
-    a1.current=range(a1,a1.current%b.current);
-    return a1;
-}
- CircularInt operator%=  (CircularInt& a, int num){
+// //%=
 
-    CircularInt a1 (a);
-    a1.current=range(a1,a1.current%num);
-    return a1;
-}
+// CircularInt operator%=  (CircularInt& a, CircularInt& b){
+
+//     CircularInt a1 (a);
+//     a1.current=range(a1,a1.current%b.current);
+//     return a1;
+// }
+//  CircularInt operator%=  (CircularInt& a, int num){
+
+//     CircularInt a1 (a);
+//     a1.current=range(a1,a1.current%num);
+//     return a1;
+// }
 
 
 
