@@ -251,7 +251,7 @@ CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
  CircularInt operator/ ( int  num, CircularInt c){
      CircularInt a1 (c);
     if(c.current!=0){
-        a1.current =range(a1,3);
+        a1.current =range(a1,num/a1.current);
         return a1;
 
     }
