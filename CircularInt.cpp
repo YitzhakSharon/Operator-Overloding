@@ -242,69 +242,89 @@ CircularInt operator*  ( int num, CircularInt c){
 CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
     CircularInt a1(c1);
     if(c2.current!=0 ){
-        a1.current=range(a1,a1.current/c2.current);
-        return a1;
+        int i;
+        for(i=c1.begin; i<c1.end; i++){
+            if(i*c2==c1)
+                a1.current=i;
+        }
     }
+        else{
+                stringstream ss;
+                ss << "There is no number x in {" << c1.begin << "," << c1.end << "} such that x*" << c2.current << "=" << c1.current;
+                string s = ss.str();
+                throw s;
+
+     }
     return a1;
 }
 
  CircularInt operator/ ( int  num, CircularInt& c){
-     CircularInt a1 (c);
-    if(c.current!=0){
-        a1.current =range(a1,num/a1.current);
-        return a1;
+    CircularInt a1(c);
+    if(c.current!=0 ){
+        int i;
+        CircularInt a2(c);
+        a2.current=num;
+        for(i=c.begin; i<c.end; i++){
+            if(i*c==a2)
+                a1.current=i;
+        }
+    }
+        else{
+                stringstream ss;
+                ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
+                string s = ss.str();
+                throw s;
 
-    }
-    else {
-        stringstream ss;
-        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
-        string s = ss.str();
-        throw s;
-    }
+     }
     return a1;
-
-
-    }
+ }
 
 CircularInt operator/ (CircularInt& c,  int  num){
-	if( num!=0){
-		CircularInt a1(c);
-		 a1.current=range(a1,a1.current/num);
-		return a1;
-		}
-	else{
-		return c;
-		}
+    CircularInt a1(c);
+    if(c.current!=0 ){
+        int i;
+        for(i=c.begin; i<c.end; i++){
+            if(i*num==c)
+                a1.current=i;
+        }
+    }
+        else{
+                stringstream ss;
+                ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
+                string s = ss.str();
+                throw s;
+
+     }
+    return a1;
 }
 
 // =/
  CircularInt& operator/= (CircularInt& c1,  CircularInt& c2){
-	CircularInt& a1(c1);
-	if(c2.current!=0){
-        a1.current=range(a1,a1.current/c2.current);
-
-    }
-    else{
-        stringstream ss;
-        ss << "There is no number x in {" << c1.begin << "," << c1.end << "} such that x*" <<  c2.current<< "=" << c1.current;
-        string s = ss.str();
-        throw s;
- 
-    }
-    return a1;
+	 CircularInt& a1(c1);
+     a1=c1/c2;
+     return a1;
 }
 CircularInt& operator/= (CircularInt& c,  int  num)  {
         CircularInt& a1 (c);
-     if(num!=0){
-        a1.current =range(a1,a1.current/num);
-        return a1;
-
-    }
-    else {
-        stringstream ss;
-        ss << "There is no number x in {" << c.begin << "," << c.end << "} such that x*" << num << "=" << c.current;
-        string s = ss.str();
-        throw s;
-    }
+        a1=c/num;
     return a1;
 }    
+// int main(){
+
+
+//     CircularInt a (1,10);
+//     CircularInt b(2,10);
+//     a.current=4;
+//     b.current=2;
+//     a=a/0;
+//     cout<<a<<"  2"<<endl;
+//     a.current=4;
+//     a/=2;
+//     cout<<a<<"  2"<<endl;
+//     a.current=2;
+//     a=4/a;
+//     cout<<a<<"  2"<<endl;
+
+
+// return 0;
+// }
