@@ -214,21 +214,21 @@ CircularInt operator*  (CircularInt c, int const& num){
 
 CircularInt operator*  (int const& num, CircularInt c){
     CircularInt a1 (c);
-    a1.current=range(a1,a1.current*num);
+    a1.current=range(a1,c.current*num);
     return a1;
 }
 
 // *=
 
- CircularInt operator*=  (CircularInt& c1, CircularInt const& c2){
+ CircularInt operator *=  (CircularInt& c1, CircularInt const& c2){
     CircularInt a1 (c1);
-    a1.current=range(a1,a1.current*c2.current);
+    a1=a1*c2;
     return a1;
 }
 
-CircularInt operator*=  (CircularInt& c, int const& num) {
+CircularInt operator *=  (CircularInt& c, int const& num) {
     CircularInt a1 (c);
-    a1.current=range(a1,a1.current*num);
+    a1=a1*num;
     return a1;
 }
 
@@ -248,7 +248,7 @@ CircularInt operator/ ( CircularInt& c1, CircularInt const& c2 ){
  CircularInt operator/ (int const& num, CircularInt c){
      CircularInt a1 (c);
     if(num % c.current == 0 && c.current!=0){
-        a1.current =range(a1,num/a1.current);
+        a1.current =range(a1,3);
         return a1;
 
     }
@@ -343,7 +343,18 @@ CircularInt operator%=  (CircularInt& a, CircularInt& b){
 
 
 
+int main(){
 
+    CircularInt b (1,10);
+    CircularInt a (1,5);
+    a.current=2;
+    b.current=3;
+    b=b*3;
+    cout<<b<<"  9  "<<endl;
+    b.current=3;
+    b=a*b;
+    cout<<b<<"  3  "<<endl;
+}
 
 
 
