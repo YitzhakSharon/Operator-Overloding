@@ -308,17 +308,6 @@ CircularInt& operator/= (CircularInt& c,  int  num)  {
     }
     return a1;
 }    
-int main(){
-
-
-    CircularInt a (1,10);
-    CircularInt b(2,10);
-    a.current=6;
-    b.current=2;
-    a/=b;
-    cout<<a<<endl;
-
-}
 
 // // %
 
