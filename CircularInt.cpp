@@ -246,7 +246,7 @@ CircularInt operator/ ( CircularInt& c1,  CircularInt& c2 ){
     CircularInt a1(c1);
     if(c2.current!=0 ){
         int i;
-        for(i=c1.begin; i<c1.end; i++){
+        for(i=c1.begin; i<=c1.end; i++){
             if(i*c2==c1)
                 a1.current=i;
         }
